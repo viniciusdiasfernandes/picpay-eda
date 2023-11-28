@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true">
+    <testsuites>
+        <testsuite name="Integration">
+            <directory suffix="Test.php">./test/integration</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./test/unit</directory>
+        </testsuite>
+    </testsuites>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./Application</directory>
+            <directory suffix=".php">./Domain</directory>
+            <directory suffix=".php">./Infra</directory>
+            <directory prefix=".php-cs-fixer.">.</directory>
+        </include>
+        <exclude>
+            <directory suffix=".php">./Infra/Http/Routes</directory>
+        </exclude>
+        <report>
+            <html outputDirectory="./test/coverage/html"/>
+        </report>
+    </coverage>
+</phpunit>
